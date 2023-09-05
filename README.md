@@ -17,7 +17,7 @@ Mainly includes the following items.
 * AnyOrd - Like `std::cmp::Ord`, but this trait can be dynamic.
 * AnyPartialEq - Like `std::cmp::PartialEq`, but this trait can be dynamic.
 * AnyPartialOrd - Like `std::cmp::PartialOrd`, but this trait can be dynamic.
-* ObjHash - Trait that combines [`AnyEq`] and [`AnyHash`].
+* ObjHash - Trait that combines `AnyEq` and `AnyHash`.
 
 ## Examples
 
