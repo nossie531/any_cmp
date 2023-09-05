@@ -1,4 +1,4 @@
-/*! Support crait upcast.
+/*! Support trait upcast.
 
 # Notes
 
