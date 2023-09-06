@@ -23,27 +23,26 @@ where
     T: Any + Ord,
 {
     fn any_cmp(&self, other: &dyn AnyOrd) -> Ordering {
-        self.as_any_partial_ord()
-            .any_partial_cmp(other.as_any_partial_ord())
+        self.any_partial_cmp(other.as_any_partial_ord_ref())
             .unwrap()
     }
 }
 
 impl PartialEq for dyn AnyOrd {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq())
+        self.any_eq(other.as_any_partial_eq_ref())
     }
 }
 
 impl PartialEq for dyn AnyOrd + Send {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq())
+        self.any_eq(other.as_any_partial_eq_ref())
     }
 }
 
 impl PartialEq for dyn AnyOrd + Send + Sync {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq())
+        self.any_eq(other.as_any_partial_eq_ref())
     }
 }
 
@@ -55,19 +54,19 @@ impl Eq for dyn AnyOrd + Send + Sync {}
 
 impl PartialOrd for dyn AnyOrd {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        self.any_partial_cmp(other.as_any_partial_ord())
+        self.any_partial_cmp(other.as_any_partial_ord_ref())
     }
 }
 
 impl PartialOrd for dyn AnyOrd + Send {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        self.any_partial_cmp(other.as_any_partial_ord())
+        self.any_partial_cmp(other.as_any_partial_ord_ref())
     }
 }
 
 impl PartialOrd for dyn AnyOrd + Send + Sync {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        self.any_partial_cmp(other.as_any_partial_ord())
+        self.any_partial_cmp(other.as_any_partial_ord_ref())
     }
 }
 

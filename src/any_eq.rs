@@ -19,19 +19,19 @@ where
 
 impl PartialEq for dyn AnyEq {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq())
+        self.any_eq(other.as_any_partial_eq_ref())
     }
 }
 
 impl PartialEq for dyn AnyEq + Send {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq())
+        self.any_eq(other.as_any_partial_eq_ref())
     }
 }
 
 impl PartialEq for dyn AnyEq + Send + Sync {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq())
+        self.any_eq(other.as_any_partial_eq_ref())
     }
 }
 

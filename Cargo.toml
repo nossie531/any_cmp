@@ -1,6 +1,6 @@
 [package]
 name = "any_cmp"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["Nossie531"]
 edition = "2021"
 description = "Support dynamic type comparisons."

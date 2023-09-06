@@ -43,3 +43,9 @@ assert_eq!(map[&false as &dyn ObjHash], "bool");
 assert_eq!(map[&0 as &dyn ObjHash], "int");
 assert_eq!(map[&"" as &dyn ObjHash], "string");
 ```
+
+## What's New
+
+At version 0.2.0.
+
+* Module `upcast` specs have slightly changed.

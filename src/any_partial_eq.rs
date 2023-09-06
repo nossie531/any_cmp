@@ -26,8 +26,7 @@ where
             return false;
         }
 
-        let other = other.as_any().downcast_ref::<Self>().unwrap();
-        self.eq(other)
+        self.eq(other.as_any_ref().downcast_ref().unwrap())
     }
 }
 

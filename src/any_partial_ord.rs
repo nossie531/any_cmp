@@ -27,26 +27,25 @@ where
             return Some(self.type_id().cmp(&other.type_id()));
         }
 
-        let other = other.as_any().downcast_ref::<Self>().unwrap();
-        self.partial_cmp(other)
+        self.partial_cmp(other.as_any_ref().downcast_ref().unwrap())
     }
 }
 
 impl PartialEq for dyn AnyPartialOrd {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq())
+        self.any_eq(other.as_any_partial_eq_ref())
     }
 }
 
 impl PartialEq for dyn AnyPartialOrd + Send {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq())
+        self.any_eq(other.as_any_partial_eq_ref())
     }
 }
 
 impl PartialEq for dyn AnyPartialOrd + Send + Sync {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq())
+        self.any_eq(other.as_any_partial_eq_ref())
     }
 }
 
