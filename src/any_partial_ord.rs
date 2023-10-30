@@ -15,6 +15,7 @@ use std::fmt::{Debug, Formatter, Result};
 /// [`TypeId`]: core::any::TypeId
 pub trait AnyPartialOrd: AnyPartialEq + AsAnyPartialEq {
     /// This method returns an ordering between `self` and `other` values if one exists.
+    #[must_use]
     fn any_partial_cmp(&self, other: &dyn AnyPartialOrd) -> Option<Ordering>;
 }
 

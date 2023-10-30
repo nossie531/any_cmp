@@ -5,9 +5,11 @@ use std::any::Any;
 /// Support upcast to [`Any`].
 pub trait AsAny: Any {
     /// Upcast `self` to [`Any`].
+    #[must_use]
     fn as_any_ref(&self) -> &dyn Any;
 
     /// Upcast `self` to mutable [`Any`].
+    #[must_use]
     fn as_any_mut(&mut self) -> &mut dyn Any;
 }
 

@@ -5,9 +5,11 @@ use crate::AnyOrd;
 /// Support upcast to [`AnyOrd`].
 pub trait AsAnyOrd: AnyOrd {
     /// Upcast `self` to [`AnyOrd`].
+    #[must_use]
     fn as_any_ord_ref(&self) -> &dyn AnyOrd;
 
     /// Upcast `self` to mutable [`AnyOrd`].
+    #[must_use]
     fn as_any_ord_mut(&mut self) -> &mut dyn AnyOrd;
 }
 

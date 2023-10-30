@@ -5,9 +5,11 @@ use crate::AnyHash;
 /// Support upcast to [`AnyHash`].
 pub trait AsAnyHash: AnyHash {
     /// Upcast `self` to [`AnyHash`].
+    #[must_use]
     fn as_any_hash_ref(&self) -> &dyn AnyHash;
 
     /// Upcast `self` to mutable [`AnyHash`].
+    #[must_use]
     fn as_any_hash_mut(&mut self) -> &mut dyn AnyHash;
 }
 

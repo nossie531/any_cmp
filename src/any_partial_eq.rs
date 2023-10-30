@@ -7,11 +7,13 @@ use std::fmt::{Debug, Formatter, Result};
 /// Like [`PartialEq`], but this trait can be dynamic.
 pub trait AnyPartialEq: Any + AsAny {
     /// This method tests for `self` and `other` values to be equal.
+    #[must_use]
     fn any_eq(&self, other: &dyn AnyPartialEq) -> bool;
 
     /// This method tests for `self` and `other` values to be not equal.
     /// The default implementation is almost always sufficient, and should
     /// not be overridden without very good reason.
+    #[must_use]
     fn any_ne(&self, other: &dyn AnyPartialEq) -> bool {
         !self.any_eq(other)
     }

@@ -2,10 +2,10 @@
 
 # Notes
 
-In the future, when [trait_upcasting] is released,
+In the future, when [`trait_upcasting`] is released,
 this module will not be needed as much.
 
-[trait_upcasting]:
+[`trait_upcasting`]:
     https://doc.rust-lang.org/beta/unstable-book/language-features/trait-upcasting.html
 */
 

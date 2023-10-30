@@ -5,9 +5,11 @@ use crate::AnyPartialOrd;
 /// Support upcast to [`AnyPartialOrd`].
 pub trait AsAnyPartialOrd: AnyPartialOrd {
     /// Upcast `self` to [`AnyPartialOrd`].
+    #[must_use]
     fn as_any_partial_ord_ref(&self) -> &dyn AnyPartialOrd;
 
     /// Upcast `self` to mutable [`AnyPartialOrd`].
+    #[must_use]
     fn as_any_partial_ord_mut(&mut self) -> &mut dyn AnyPartialOrd;
 }
 

@@ -5,9 +5,11 @@ use crate::AnyEq;
 /// Support upcast to [`AnyEq`].
 pub trait AsAnyEq: AnyEq {
     /// Upcast `self` to [`AnyEq`].
+    #[must_use]
     fn as_any_eq_ref(&self) -> &dyn AnyEq;
 
     /// Upcast `self` to mutable [`AnyEq`].
+    #[must_use]
     fn as_any_eq_mut(&mut self) -> &mut dyn AnyEq;
 }
 

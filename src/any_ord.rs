@@ -15,6 +15,7 @@ use std::fmt::{Debug, Formatter, Result};
 /// [`TypeId`]: core::any::TypeId
 pub trait AnyOrd: AnyPartialOrd + AsAnyPartialOrd {
     /// This method returns an ordering between `self` and `other`.
+    #[must_use]
     fn any_cmp(&self, other: &dyn AnyOrd) -> Ordering;
 }
 
