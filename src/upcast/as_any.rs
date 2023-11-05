@@ -11,6 +11,10 @@ pub trait AsAny: Any {
     /// Upcast `self` to mutable [`Any`].
     #[must_use]
     fn as_any_mut(&mut self) -> &mut dyn Any;
+
+    /// Upcast `self` to boxed [`Any`].
+    #[must_use]
+    fn as_any_box(self: Box<Self>) -> Box<dyn Any>;
 }
 
 impl<T> AsAny for T
@@ -24,6 +28,11 @@ where
 
     #[inline(always)]
     fn as_any_mut(&mut self) -> &mut dyn Any {
+        self
+    }
+
+    #[inline(always)]
+    fn as_any_box(self: Box<Self>) -> Box<dyn Any> {
         self
     }
 }

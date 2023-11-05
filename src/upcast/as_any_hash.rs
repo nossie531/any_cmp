@@ -11,6 +11,10 @@ pub trait AsAnyHash: AnyHash {
     /// Upcast `self` to mutable [`AnyHash`].
     #[must_use]
     fn as_any_hash_mut(&mut self) -> &mut dyn AnyHash;
+
+    /// Upcast `self` to boxed [`AnyHash`].
+    #[must_use]
+    fn as_any_hash_box(self: Box<Self>) -> Box<dyn AnyHash>;
 }
 
 impl<T> AsAnyHash for T
@@ -24,6 +28,11 @@ where
 
     #[inline(always)]
     fn as_any_hash_mut(&mut self) -> &mut dyn AnyHash {
+        self
+    }
+
+    #[inline(always)]
+    fn as_any_hash_box(self: Box<Self>) -> Box<dyn AnyHash> {
         self
     }
 }

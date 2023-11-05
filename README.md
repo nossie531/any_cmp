@@ -46,6 +46,10 @@ assert_eq!(map[&"" as &dyn ObjHash], "string");
 
 ## What's New
 
+v0.4.0
+* Fix forgotten implementation.
+* Add box upcasting methods (ex: `as_any_eq_box`).
+
 v0.3.0
 
 * `must_use` annotations are added at several locations.

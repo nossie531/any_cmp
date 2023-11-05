@@ -11,6 +11,10 @@ pub trait AsAnyPartialEq: AnyPartialEq {
     /// Upcast `self` to mutable [`AnyPartialEq`].
     #[must_use]
     fn as_any_partial_eq_mut(&mut self) -> &mut dyn AnyPartialEq;
+
+    /// Upcast `self` to boxed [`AnyPartialEq`].
+    #[must_use]
+    fn as_any_partial_eq_box(self: Box<Self>) -> Box<dyn AnyPartialEq>;
 }
 
 impl<T> AsAnyPartialEq for T
@@ -24,6 +28,11 @@ where
 
     #[inline(always)]
     fn as_any_partial_eq_mut(&mut self) -> &mut dyn AnyPartialEq {
+        self
+    }
+
+    #[inline(always)]
+    fn as_any_partial_eq_box(self: Box<Self>) -> Box<dyn AnyPartialEq> {
         self
     }
 }
