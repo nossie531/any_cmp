@@ -12,12 +12,14 @@ This crate provides traits that are comparable and can be dynamic types.
 
 Mainly includes the following items.
 
-* **`AnyEq`** - Like `std::cmp::Eq`.
-* **`AnyHash`** - Like `std::hash::Hash`.
-* **`AnyOrd`** - Like `std::cmp::Ord`.
-* **`AnyPartialEq`** - Like `std::cmp::PartialEq`.
-* **`AnyPartialOrd`** - Like `std::cmp::PartialOrd`.
-* **`ObjHash`** - Trait that combines `AnyEq` and `AnyHash`.
+| name            | summary                      |
+| -               | -                            |
+| `AnyEq`         | Like `std::cmp::Eq`.         |
+| `AnyHash`       | Like `std::hash::Hash`.      |
+| `AnyOrd`        | Like `std::cmp::Ord`.        |
+| `AnyPartialEq`  | Like `std::cmp::PartialEq`.  |
+| `AnyPartialOrd` | Like `std::cmp::PartialOrd`. |
+| `ObjHash`       | Trait that combines `AnyEq` and `AnyHash`. |
 
 ## Examples
 
@@ -45,6 +47,9 @@ assert_eq!(map[&"" as &dyn ObjHash], "string");
 ```
 
 ## What's New
+
+v0.4.1
+* Minor refactoring.
 
 v0.4.0
 * Fix forgotten implementation.

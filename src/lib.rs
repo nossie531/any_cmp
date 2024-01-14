@@ -8,9 +8,9 @@ mod any_partial_ord;
 mod obj_hash;
 pub mod upcast;
 
-pub use any_eq::AnyEq;
-pub use any_hash::AnyHash;
-pub use any_ord::AnyOrd;
-pub use any_partial_eq::AnyPartialEq;
-pub use any_partial_ord::AnyPartialOrd;
-pub use obj_hash::ObjHash;
+pub use any_eq::*;
+pub use any_hash::*;
+pub use any_ord::*;
+pub use any_partial_eq::*;
+pub use any_partial_ord::*;
+pub use obj_hash::*;

@@ -17,10 +17,10 @@ mod as_any_partial_eq;
 mod as_any_partial_ord;
 mod as_obj_hash;
 
-pub use as_any::AsAny;
-pub use as_any_eq::AsAnyEq;
-pub use as_any_hash::AsAnyHash;
-pub use as_any_ord::AsAnyOrd;
-pub use as_any_partial_eq::AsAnyPartialEq;
-pub use as_any_partial_ord::AsAnyPartialOrd;
-pub use as_obj_hash::AsObjHash;
+pub use as_any::*;
+pub use as_any_eq::*;
+pub use as_any_hash::*;
+pub use as_any_ord::*;
+pub use as_any_partial_eq::*;
+pub use as_any_partial_ord::*;
+pub use as_obj_hash::*;
