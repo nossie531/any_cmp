@@ -1,3 +1,5 @@
+//! Provider of [`ObjHash`].
+
 use crate::prelude::*;
 use std::fmt::{Debug, Formatter, Result};
 use std::hash::{Hash, Hasher};
