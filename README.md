@@ -48,6 +48,12 @@ assert_eq!(map[&"" as &dyn ObjHash], "string");
 
 ## What's New
 
+v0.5.0
+* Rust edition is updated to 2024.
+* Add `prelude` module (Although this crate is very small).
+* Remove `upcast` module ([Trait upcasting] is a good substitute).
+[Trait Upcasting]: https://blog.rust-lang.org/2025/04/03/Rust-1.86.0/#trait-upcasting
+
 v0.4.1
 * Minor refactoring.
 

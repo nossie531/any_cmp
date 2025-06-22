@@ -1,4 +1,4 @@
-use crate::{AnyEq, AnyHash};
+use crate::prelude::*;
 use std::fmt::{Debug, Formatter, Result};
 use std::hash::{Hash, Hasher};
 
@@ -9,19 +9,19 @@ impl<T> ObjHash for T where T: AnyEq + AnyHash {}
 
 impl PartialEq for dyn ObjHash {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq_ref())
+        self.any_eq(other as &dyn AnyPartialEq)
     }
 }
 
 impl PartialEq for dyn ObjHash + Send {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq_ref())
+        self.any_eq(other as &dyn AnyPartialEq)
     }
 }
 
 impl PartialEq for dyn ObjHash + Send + Sync {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq_ref())
+        self.any_eq(other as &dyn AnyPartialEq)
     }
 }
 

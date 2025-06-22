@@ -1,4 +1,4 @@
-use any_cmp::ObjHash;
+use any_cmp::prelude::*;
 use std::collections::HashMap;
 
 #[test]

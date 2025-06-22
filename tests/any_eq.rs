@@ -1,4 +1,4 @@
-use any_cmp::AnyEq;
+use any_cmp::prelude::*;
 
 #[test]
 fn test() {

@@ -1,4 +1,4 @@
-use any_cmp::AnyOrd;
+use any_cmp::prelude::*;
 use std::collections::BTreeMap;
 
 #[test]

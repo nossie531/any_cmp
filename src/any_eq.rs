@@ -1,12 +1,11 @@
 //! Provider of [`AnyEq`].
 
-use super::any_partial_eq::AnyPartialEq;
-use crate::upcast::AsAnyPartialEq;
+use crate::prelude::*;
 use std::any::Any;
 use std::fmt::{Debug, Formatter, Result};
 
 /// Like [`Eq`], but this trait can be dynamic.
-pub trait AnyEq: AnyPartialEq + AsAnyPartialEq {
+pub trait AnyEq: AnyPartialEq {
     // NOP.
 }
 
@@ -19,19 +18,19 @@ where
 
 impl PartialEq for dyn AnyEq {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq_ref())
+        self.any_eq(other as &dyn AnyPartialEq)
     }
 }
 
 impl PartialEq for dyn AnyEq + Send {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq_ref())
+        self.any_eq(other as &dyn AnyPartialEq)
     }
 }
 
 impl PartialEq for dyn AnyEq + Send + Sync {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq_ref())
+        self.any_eq(other as &dyn AnyPartialEq)
     }
 }
 

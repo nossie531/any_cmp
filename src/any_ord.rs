@@ -1,7 +1,6 @@
 //! Provider of [`AnyOrd`].
 
-use super::AnyPartialOrd;
-use crate::upcast::AsAnyPartialOrd;
+use crate::prelude::*;
 use std::any::Any;
 use std::cmp::Ordering;
 use std::fmt::{Debug, Formatter, Result};
@@ -13,7 +12,7 @@ use std::fmt::{Debug, Formatter, Result};
 /// comparison result depends on it as well.
 ///
 /// [`TypeId`]: core::any::TypeId
-pub trait AnyOrd: AnyPartialOrd + AsAnyPartialOrd {
+pub trait AnyOrd: AnyPartialOrd {
     /// This method returns an ordering between `self` and `other`.
     #[must_use]
     fn any_cmp(&self, other: &dyn AnyOrd) -> Ordering;
@@ -24,26 +23,25 @@ where
     T: Any + Ord,
 {
     fn any_cmp(&self, other: &dyn AnyOrd) -> Ordering {
-        self.any_partial_cmp(other.as_any_partial_ord_ref())
-            .unwrap()
+        self.any_partial_cmp(other as &dyn AnyPartialOrd).unwrap()
     }
 }
 
 impl PartialEq for dyn AnyOrd {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq_ref())
+        self.any_eq(other as &dyn AnyPartialEq)
     }
 }
 
 impl PartialEq for dyn AnyOrd + Send {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq_ref())
+        self.any_eq(other as &dyn AnyPartialEq)
     }
 }
 
 impl PartialEq for dyn AnyOrd + Send + Sync {
     fn eq(&self, other: &Self) -> bool {
-        self.any_eq(other.as_any_partial_eq_ref())
+        self.any_eq(other as &dyn AnyPartialEq)
     }
 }
 
@@ -55,19 +53,19 @@ impl Eq for dyn AnyOrd + Send + Sync {}
 
 impl PartialOrd for dyn AnyOrd {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        self.any_partial_cmp(other.as_any_partial_ord_ref())
+        self.any_partial_cmp(other as &dyn AnyPartialOrd)
     }
 }
 
 impl PartialOrd for dyn AnyOrd + Send {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        self.any_partial_cmp(other.as_any_partial_ord_ref())
+        self.any_partial_cmp(other as &dyn AnyPartialOrd)
     }
 }
 
 impl PartialOrd for dyn AnyOrd + Send + Sync {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        self.any_partial_cmp(other.as_any_partial_ord_ref())
+        self.any_partial_cmp(other as &dyn AnyPartialOrd)
     }
 }
 

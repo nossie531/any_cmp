@@ -1,12 +1,11 @@
 //! Provider of [`AnyHash`].
 
-use crate::upcast::AsAny;
 use std::any::Any;
 use std::fmt::{Debug, Formatter, Result};
 use std::hash::{Hash, Hasher};
 
 /// Like [`Hash`], but this trait can be dynamic.
-pub trait AnyHash: Any + AsAny {
+pub trait AnyHash: Any {
     /// Feeds this value into the given [`Hasher`].
     fn any_hash(&self, state: &mut dyn Hasher);
 }

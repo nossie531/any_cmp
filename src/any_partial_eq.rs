@@ -1,11 +1,10 @@
 //! Provider of [`AnyPartialEq`].
 
-use crate::upcast::AsAny;
 use std::any::Any;
 use std::fmt::{Debug, Formatter, Result};
 
 /// Like [`PartialEq`], but this trait can be dynamic.
-pub trait AnyPartialEq: Any + AsAny {
+pub trait AnyPartialEq: Any {
     /// This method tests for `self` and `other` values to be equal.
     #[must_use]
     fn any_eq(&self, other: &dyn AnyPartialEq) -> bool;
@@ -28,7 +27,7 @@ where
             return false;
         }
 
-        self.eq(other.as_any_ref().downcast_ref().unwrap())
+        self.eq((other as &dyn Any).downcast_ref().unwrap())
     }
 }
 
